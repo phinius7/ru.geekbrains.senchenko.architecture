@@ -1,0 +1,1 @@
+ru.geekbrains.senchenko.architecture
