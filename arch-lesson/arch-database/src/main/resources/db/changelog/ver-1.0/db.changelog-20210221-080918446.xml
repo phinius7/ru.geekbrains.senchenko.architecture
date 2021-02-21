@@ -1,0 +1,97 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="senchenko (generated)" id="1613894972345-1">
+        <createTable tableName="clients">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="clientsPK"/>
+            </column>
+            <column name="birthday" type="datetime(6)"/>
+            <column name="company" type="VARCHAR(32)"/>
+            <column name="email" type="VARCHAR(32)"/>
+            <column name="firstname" type="VARCHAR(32)"/>
+            <column name="lastname" type="VARCHAR(32)"/>
+            <column name="phone" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="senchenko (generated)" id="1613894972345-2">
+        <createTable tableName="roles">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="rolesPK"/>
+            </column>
+            <column name="title" type="VARCHAR(32)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="senchenko (generated)" id="1613894972345-3">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="usersPK"/>
+            </column>
+            <column name="birthday" type="datetime(6)"/>
+            <column name="email" type="VARCHAR(32)"/>
+            <column name="firstname" type="VARCHAR(32)"/>
+            <column name="lastname" type="VARCHAR(32)"/>
+            <column name="password" type="VARCHAR(128)"/>
+            <column name="phone" type="VARCHAR(20)"/>
+            <column name="username" type="VARCHAR(32)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="senchenko (generated)" id="1613894972345-4">
+        <createTable tableName="users_clients">
+            <column name="user_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="client_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="senchenko (generated)" id="1613894972345-5">
+        <createTable tableName="users_roles">
+            <column name="user_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="role_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="senchenko (generated)" id="1613894972345-6">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="users_roles"
+                                 constraintName="FK2o0jvgh89lemvvo17cbqvdxaa" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="users"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="senchenko (generated)" id="1613894972345-7">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="users_clients"
+                                 constraintName="FK3vv64oyeijlk3taarms70xqmt" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="clients"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="senchenko (generated)" id="1613894972345-8">
+        <addForeignKeyConstraint baseColumnNames="client_id" baseTableName="users_clients"
+                                 constraintName="FKg627b9w5fre3ov3es6h0wn1f" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="users"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="senchenko (generated)" id="1613894972345-9">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="users_roles"
+                                 constraintName="FKj6m8fwv7oqv74fcehir1a9ffy" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="roles"
+                                 validate="true"/>
+    </changeSet>
+
+    <changeSet author="senchenko" id="1613894972345-10">
+        <sqlFile dbms="mysql"
+                 encoding="UTF-8"
+                 endDelimiter="\nGO"
+                 path="insert-default-users-roles.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"
+        />
+        <rollback/>
+    </changeSet>
+</databaseChangeLog>

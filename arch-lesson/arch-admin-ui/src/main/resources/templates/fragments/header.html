@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.0.10/web-fonts-with-css/css/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/bootadmin.min.css}">
+    <link rel="stylesheet" href="https://bootadmin.net/css/datatables.min.css">
+
+    <title>LocalCRM</title>
+</head>
+
+<body class="bg-light">
+<nav th:fragment="navbar" class="navbar navbar-expand navbar-dark bg-primary">
+    <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
+    <a class="navbar-brand" th:href="@{/}">LocalCRM</a>
+</nav>
+
+</body>
+</html>

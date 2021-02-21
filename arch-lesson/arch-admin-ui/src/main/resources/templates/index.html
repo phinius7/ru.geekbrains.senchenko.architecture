@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: head"></head>
+
+<body class="bg-light">
+<nav th:replace="fragments/header :: navbar"></nav>
+<div class="d-flex">
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+    <div class="content p-4">
+        <h2 class="mb-4">Welcome To LocalCRM</h2>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                Administration mode
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:replace="fragments/footer :: scripts"></script>
+
+</body>
+</html>
