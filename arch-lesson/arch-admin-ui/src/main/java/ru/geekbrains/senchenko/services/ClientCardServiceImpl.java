@@ -24,9 +24,6 @@ public class ClientCardServiceImpl implements ClientCardService {
 
     @Override
     public void save(ClientCard cCard) throws IOException {
-//        MementoClientCard memento = MementoClientCard.getInstance();
-//        memento.setState(cCard);
-        cardOnWork.addClientCard(cCard);
         clientCardRepository.save(cCard);
     }
 
@@ -40,6 +37,7 @@ public class ClientCardServiceImpl implements ClientCardService {
         if (cardOnWork.getClientCard(id) != null) {
             return Optional.of(cardOnWork.getClientCard(id));
         }
+        cardOnWork.addClientCard(clientCardRepository.findById(id).get());
         return clientCardRepository.findById(id);
     }
 

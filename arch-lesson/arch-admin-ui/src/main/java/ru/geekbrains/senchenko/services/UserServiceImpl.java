@@ -23,7 +23,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) throws IOException {
-        userOnWork.addUser(user);
         userRepository.save(user);
     }
 
@@ -37,6 +36,7 @@ public class UserServiceImpl implements UserService {
         if (userOnWork.getUser(id) != null) {
             return Optional.of(userOnWork.getUser(id));
         }
+        userOnWork.addUser(userRepository.findById(id).get());
         return userRepository.findById(id);
     }
 

@@ -1,9 +1,12 @@
 package ru.geekbrains.senchenko.entities;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
+@Data
 public class Role {
 
     @Id
@@ -13,30 +16,6 @@ public class Role {
 
     @Column(name = "title", length = 32)
     private String title;
-
-    public Role() {
-    }
-
-    public Role(Integer id, String title) {
-        this.id = id;
-        this.title = title;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     @Override
     public String toString() {

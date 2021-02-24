@@ -9,14 +9,14 @@
         <runningAs username="root"/>
     </preConditions>
 
-<!--    <changeSet id="0" author="senchenko">-->
-<!--        <tagDatabase tag="db_init"/>-->
-<!--    </changeSet>-->
+    <changeSet id="0" author="senchenko">
+        <tagDatabase tag="db_init"/>
+    </changeSet>
 
-<!--    <include file="ver-1.0/db.changelog-20210221-080918446.xml" relativeToChangelogFile="true"/>-->
+    <include file="ver-1.0/db.changelog-20210221-080918446.xml" relativeToChangelogFile="true"/>
 
-<!--    <changeSet id="10" author="senchenko">-->
-<!--        <tagDatabase tag="ver-1.0"/>-->
-<!--    </changeSet>-->
+    <changeSet id="10" author="senchenko">
+        <tagDatabase tag="ver-1.0"/>
+    </changeSet>
 
 </databaseChangeLog>

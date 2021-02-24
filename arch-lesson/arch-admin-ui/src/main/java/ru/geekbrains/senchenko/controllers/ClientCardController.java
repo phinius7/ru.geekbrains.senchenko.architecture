@@ -1,6 +1,6 @@
 package ru.geekbrains.senchenko.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,14 +14,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/clients")
+@RequiredArgsConstructor
 public class ClientCardController {
 
     private final ClientCardServiceImpl clientCardService;
-
-    @Autowired
-    public ClientCardController(ClientCardServiceImpl clientCardService) {
-        this.clientCardService = clientCardService;
-    }
 
     @GetMapping
     public String showClientCardListForm(Model model) {

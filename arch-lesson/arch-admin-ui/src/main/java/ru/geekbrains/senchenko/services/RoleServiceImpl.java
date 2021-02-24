@@ -23,8 +23,8 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public void save(Role role) throws IOException {
-        roleOnWork.addRole(role);
         roleRepository.save(role);
+
     }
 
     @Override
@@ -37,6 +37,7 @@ public class RoleServiceImpl implements RoleService {
         if (roleOnWork.getRole(id) != null) {
             return Optional.of(roleOnWork.getRole(id));
         }
+        roleOnWork.addRole(roleRepository.findById(id).get());
         return roleRepository.findById(id);
     }
 
