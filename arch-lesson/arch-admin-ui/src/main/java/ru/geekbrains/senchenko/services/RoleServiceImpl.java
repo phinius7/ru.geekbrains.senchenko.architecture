@@ -1,7 +1,7 @@
 package ru.geekbrains.senchenko.services;
 
+import lombok.RequiredArgsConstructor;
 import ru.geekbrains.senchenko.entities.Role;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.senchenko.repositories.RoleRepository;
 import ru.geekbrains.senchenko.services.onworks.RoleOnWork;
@@ -11,15 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class RoleServiceImpl implements RoleService {
 
     private RoleOnWork roleOnWork = new RoleOnWork();
     private final RoleRepository roleRepository;
-
-    @Autowired
-    public RoleServiceImpl(RoleRepository roleRepository) {
-        this.roleRepository = roleRepository;
-    }
 
     @Override
     public void save(Role role) throws IOException {

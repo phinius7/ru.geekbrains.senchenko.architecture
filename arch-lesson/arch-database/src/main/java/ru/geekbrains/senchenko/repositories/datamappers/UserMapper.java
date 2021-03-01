@@ -1,11 +1,13 @@
 package ru.geekbrains.senchenko.repositories.datamappers;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 import ru.geekbrains.senchenko.entities.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Component
 public class UserMapper implements RowMapper<User> {
 
     @Override

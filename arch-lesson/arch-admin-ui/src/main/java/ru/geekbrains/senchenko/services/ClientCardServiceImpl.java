@@ -1,10 +1,9 @@
 package ru.geekbrains.senchenko.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.senchenko.entities.ClientCard;
 import ru.geekbrains.senchenko.repositories.ClientCardRepository;
-import ru.geekbrains.senchenko.services.memento.MementoClientCard;
 import ru.geekbrains.senchenko.services.onworks.ClientCardOnWork;
 
 import java.io.IOException;
@@ -12,15 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ClientCardServiceImpl implements ClientCardService {
 
     private ClientCardOnWork cardOnWork = new ClientCardOnWork();
     private final ClientCardRepository clientCardRepository;
-
-    @Autowired
-    public ClientCardServiceImpl(ClientCardRepository clientCardRepository) {
-        this.clientCardRepository = clientCardRepository;
-    }
 
     @Override
     public void save(ClientCard cCard) throws IOException {
